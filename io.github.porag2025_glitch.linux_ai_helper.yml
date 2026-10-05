@@ -1,0 +1,19 @@
+app-id: io.github.porag2025_glitch.linux_ai_helper
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+command: ai-helper
+finish-args:
+  - --socket=x11
+  - --socket=fallback-x11
+  - --share=ipc
+  - --share=network
+modules:
+  - name: linux-ai-helper
+    buildsystem: simple
+    build-commands:
+      - pip3 install --prefix=/app .
+    sources:
+      - type: git
+        url: https://github.com/porag2025-glitch/linux-ai-helper.git
+        tag: v1.0.0
